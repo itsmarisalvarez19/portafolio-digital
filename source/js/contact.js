@@ -1,26 +1,33 @@
 
 // CONTACT FORM FUNCTIONALITY
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.contact-form');
     const dialog = document.getElementById('successDialog');
     const closeBtn = document.getElementById('closeSuccessDialog');
+    const nextInput = document.getElementById('formNextUrl');
 
-    if (!form || !dialog || !closeBtn) return;
+    if (nextInput) {
+        const cleanUrl = window.location.origin + window.location.pathname;
+        nextInput.value = cleanUrl + '?mensaje=enviado#contact';
+    }
 
-    form.addEventListener('submit', function () {
-        setTimeout(function () {
-            dialog.classList.add('active');
-            form.reset();
-        }, 700);
-    });
+    const params = new URLSearchParams(window.location.search);
 
-    closeBtn.addEventListener('click', function () {
-        dialog.classList.remove('active');
-    });
+    if (dialog && params.get('mensaje') === 'enviado') {
+        dialog.classList.add('active');
 
-    dialog.addEventListener('click', function (event) {
-        if (event.target === dialog) {
+        const cleanUrl = window.location.origin + window.location.pathname + '#contact';
+        window.history.replaceState({}, document.title, cleanUrl);
+    }
+
+    if (closeBtn && dialog) {
+        closeBtn.addEventListener('click', function () {
             dialog.classList.remove('active');
-        }
-    });
+        });
+
+        dialog.addEventListener('click', function (event) {
+            if (event.target === dialog) {
+                dialog.classList.remove('active');
+            }
+        });
+    }
 });
