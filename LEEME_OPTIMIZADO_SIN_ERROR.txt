@@ -1,0 +1,19 @@
+OPTIMIZACIÓN SEGURA
+
+Este ZIP conserva todo el proyecto completo:
+- HTML original
+- CSS original
+- JS original
+- Foto
+- Imágenes
+- Portafolio
+- Formulario funcional con Web3Forms
+
+Optimización aplicada:
+- Imágenes convertidas a WebP
+- Imágenes grandes reducidas
+- Lazy loading en imágenes
+- Scripts con defer
+
+No se minificó el JavaScript para evitar el error:
+Uncaught SyntaxError: missing ) after argument list
