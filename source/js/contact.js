@@ -1,79 +1,62 @@
 
-// CONTACT FORM WITH WEB3FORMS
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+
     const form = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('contactSubmitBtn');
+    const submitBtn = document.getElementById('submitBtn');
 
     const successDialog = document.getElementById('successDialog');
     const errorDialog = document.getElementById('errorDialog');
 
-    const closeSuccessDialog = document.getElementById('closeSuccessDialog');
+    const closeDialog = document.getElementById('closeDialog');
     const closeErrorDialog = document.getElementById('closeErrorDialog');
 
-    function openDialog(dialog) {
-        if (dialog) dialog.classList.add('active');
-    }
+    form.addEventListener('submit', async (e) => {
 
-    function closeDialog(dialog) {
-        if (dialog) dialog.classList.remove('active');
-    }
+        e.preventDefault();
 
-    if (closeSuccessDialog) {
-        closeSuccessDialog.addEventListener('click', function () {
-            closeDialog(successDialog);
-        });
-    }
-
-    if (closeErrorDialog) {
-        closeErrorDialog.addEventListener('click', function () {
-            closeDialog(errorDialog);
-        });
-    }
-
-    [successDialog, errorDialog].forEach(function (dialog) {
-        if (!dialog) return;
-
-        dialog.addEventListener('click', function (event) {
-            if (event.target === dialog) {
-                closeDialog(dialog);
-            }
-        });
-    });
-
-    if (!form) return;
-
-    form.addEventListener('submit', async function (event) {
-        event.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Enviando...';
 
         const formData = new FormData(form);
-        const originalButtonText = submitBtn ? submitBtn.textContent : '';
 
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-        }
+        try{
 
-        try {
             const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
+                method:'POST',
+                body:formData
             });
 
-            const result = await response.json();
+            const data = await response.json();
 
-            if (result.success) {
+            if(data.success){
+
                 form.reset();
-                openDialog(successDialog);
-            } else {
-                openDialog(errorDialog);
+                successDialog.classList.add('active');
+
+            }else{
+
+                errorDialog.classList.add('active');
+
             }
-        } catch (error) {
-            openDialog(errorDialog);
-        } finally {
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalButtonText || 'Enviar mensaje';
-            }
+
+        }catch(error){
+
+            console.log(error);
+            errorDialog.classList.add('active');
+
         }
+
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Enviar mensaje';
+
     });
+
+    closeDialog.addEventListener('click', () => {
+        successDialog.classList.remove('active');
+    });
+
+    closeErrorDialog.addEventListener('click', () => {
+        errorDialog.classList.remove('active');
+    });
+
 });
