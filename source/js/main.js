@@ -15,3 +15,80 @@ const observer = new IntersectionObserver(entries => {
   });
 },{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+// FORMULARIO WEB3FORMS
+const contactForm = document.getElementById('contactForm');
+const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+const successDialog = document.getElementById('successDialog');
+const errorDialog = document.getElementById('errorDialog');
+const closeSuccessDialog = document.getElementById('closeSuccessDialog');
+const closeErrorDialog = document.getElementById('closeErrorDialog');
+
+function openModal(modal){
+  if(modal){
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden','false');
+  }
+}
+
+function closeModal(modal){
+  if(modal){
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden','true');
+  }
+}
+
+if(closeSuccessDialog){
+  closeSuccessDialog.addEventListener('click', () => closeModal(successDialog));
+}
+
+if(closeErrorDialog){
+  closeErrorDialog.addEventListener('click', () => closeModal(errorDialog));
+}
+
+[successDialog, errorDialog].forEach(modal => {
+  if(!modal) return;
+  modal.addEventListener('click', event => {
+    if(event.target === modal) closeModal(modal);
+  });
+});
+
+if(contactForm){
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const originalText = contactSubmitBtn ? contactSubmitBtn.textContent : 'Enviar mensaje';
+    const formData = new FormData(contactForm);
+
+    if(contactSubmitBtn){
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.textContent = 'Enviando...';
+    }
+
+    try{
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method:'POST',
+        body:formData
+      });
+
+      const data = await response.json();
+
+      if(data.success === true){
+        contactForm.reset();
+        openModal(successDialog);
+      }else{
+        console.log('Web3Forms error:', data);
+        openModal(errorDialog);
+      }
+    }catch(error){
+      console.log('Error enviando formulario:', error);
+      openModal(errorDialog);
+    }finally{
+      if(contactSubmitBtn){
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.textContent = originalText;
+      }
+    }
+  });
+}

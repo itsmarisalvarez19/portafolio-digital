@@ -1,0 +1,23 @@
+PORTAFOLIO COMPLETO + FORMULARIO FUNCIONAL
+
+Este ZIP conserva:
+- Diseño completo original
+- CSS completo
+- JS original
+- Foto personal
+- Todas las imágenes del portafolio
+- Filtros de portafolio
+- Formulario funcional con Web3Forms
+
+Formulario:
+- Usa Web3Forms
+- Access Key incluida
+- No usa iframe
+- No usa FormSubmit
+- No recarga la página
+- Muestra diálogo de gracias o error
+
+Para subir cambios:
+git add .
+git commit -m "portafolio completo con formulario funcional"
+git push -u origin main

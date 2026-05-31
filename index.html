@@ -220,78 +220,68 @@
 
     <section id="contacto" class="section">
       <div class="container contact reveal">
-        <div><p class="eyebrow">Contacto</p><h2>Hablemos de diseño.</h2><p>Disponible para proyectos de diseño gráfico, experiencias 360, PDV y creación de marcas.</p></div>
-        <div class="contact__links">
-          <a href="mailto:alvarezfatima340@gmail.com">Correo: alvarezfatima340@gmail.com</a>
-          <a href="tel:+50233057371">Teléfono: +502 3305 7371</a>
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Hablemos de diseño.</h2>
+          <p>Disponible para proyectos de diseño gráfico, experiencias 360, PDV y creación de marcas.</p>
+
+          <div class="contact__links">
+            <a href="mailto:alvarezfatima340@gmail.com">Correo: alvarezfatima340@gmail.com</a>
+            <a href="tel:+50233057371">Teléfono: +502 3305 7371</a>
+          </div>
         </div>
+
+        <form id="contactForm" class="contact__form">
+          <input type="hidden" name="access_key" value="9e598402-b653-473c-87c1-d57e74eb234f">
+          <input type="hidden" name="subject" value="Nuevo mensaje desde el portafolio de Fátima Alvarez">
+          <input type="hidden" name="from_name" value="Portafolio Digital Fátima Alvarez">
+
+          <label>
+            <span>Nombre</span>
+            <input type="text" name="name" placeholder="Tu nombre" required>
+          </label>
+
+          <label>
+            <span>Correo</span>
+            <input type="email" name="email" placeholder="Tu correo" required>
+          </label>
+
+          <label>
+            <span>Asunto</span>
+            <input type="text" name="asunto" placeholder="Asunto" required>
+          </label>
+
+          <label>
+            <span>Descripción</span>
+            <textarea name="message" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </label>
+
+          <button class="btn contact__button" id="contactSubmitBtn" type="submit">
+            Enviar mensaje
+          </button>
+        </form>
       </div>
     </section>
-  </main>
 
-  
-<!-- CONTACT SECTION -->
-<section class="contact-section" id="contact">
-    <div class="container">
-        <div class="contact-content">
-            <span class="section-tag">Contacto</span>
-
-            <h2>Trabajemos juntos</h2>
-
-            <p>
-                ¿Tienes una idea, proyecto o marca en mente?
-                Escríbeme y con gusto podemos trabajar juntos.
-            </p>
-
-            <form id="contactForm" class="contact-form">
-                <input type="hidden" name="access_key" value="9e598402-b653-473c-87c1-d57e74eb234f">
-                <input type="hidden" name="subject" value="Nuevo mensaje desde el portafolio de Fátima Alvarez">
-                <input type="hidden" name="from_name" value="Portafolio Digital Fátima Alvarez">
-
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Tu nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Tu correo" required>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" name="asunto" placeholder="Asunto" required>
-                </div>
-
-                <div class="form-group">
-                    <textarea name="message" rows="6" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-                </div>
-
-                <button type="submit" class="contact-btn" id="contactSubmitBtn">
-                    Enviar mensaje
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- SUCCESS DIALOG -->
-<div class="success-dialog" id="successDialog">
-    <div class="success-box">
+    <div class="modal" id="successDialog" aria-hidden="true">
+      <div class="modal__box">
         <h3>¡Gracias por contactarme!</h3>
         <p>Tu mensaje fue enviado correctamente. Pronto me comunicaré contigo.</p>
-        <button type="button" id="closeSuccessDialog">Cerrar</button>
+        <button type="button" class="btn" id="closeSuccessDialog">Cerrar</button>
+      </div>
     </div>
-</div>
 
-<!-- ERROR DIALOG -->
-<div class="success-dialog" id="errorDialog">
-    <div class="success-box">
+    <div class="modal" id="errorDialog" aria-hidden="true">
+      <div class="modal__box">
         <h3>Ups, algo salió mal</h3>
         <p>No se pudo enviar el mensaje. Intenta de nuevo o escribe directamente al correo.</p>
-        <button type="button" id="closeErrorDialog">Cerrar</button>
+        <button type="button" class="btn" id="closeErrorDialog">Cerrar</button>
+      </div>
     </div>
-</div>
 
-<footer class="footer"><div class="container">© 2026 Fátima Alvarez — Portafolio de Diseño Gráfico</div></footer>
+</main>
+
+  <footer class="footer"><div class="container">© 2026 Fátima Alvarez — Portafolio de Diseño Gráfico</div></footer>
   <script src="source/js/main.js"></script>
-    <script src="source/js/contact.js"></script>
 </body>
 </html>
