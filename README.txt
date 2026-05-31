@@ -1,0 +1,1 @@
+Abrir index.html en Visual Studio Code con Live Server o en el navegador. Mantener la carpeta source junto a index.html.

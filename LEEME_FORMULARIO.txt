@@ -1,0 +1,12 @@
+FORMULARIO DE CONTACTO
+
+El formulario usa FormSubmit, gratis y compatible con sitios estáticos como GitHub Pages.
+
+IMPORTANTE:
+1. Subí el sitio a GitHub Pages o abrí index.html.
+2. Enviá un primer mensaje de prueba.
+3. FormSubmit enviará un correo de activación a alvarezfatima340@gmail.com.
+4. Confirmá ese correo una sola vez.
+5. Después de eso, todos los mensajes llegarán directo al correo.
+
+No usa página extra de gracias. Muestra un diálogo dentro de la misma landing.
