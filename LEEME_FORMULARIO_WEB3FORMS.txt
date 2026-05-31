@@ -1,0 +1,19 @@
+FORMULARIO FUNCIONAL CON WEB3FORMS
+
+Se conservó el diseño completo del portafolio, fotos, secciones e imágenes.
+Solo se reemplazó el formulario por Web3Forms.
+
+Access Key:
+9e598402-b653-473c-87c1-d57e74eb234f
+
+Funcionamiento:
+- No recarga la página.
+- No usa FormSubmit.
+- No usa iframe.
+- Muestra diálogo de gracias.
+- Envía los mensajes al correo configurado en Web3Forms.
+
+Para subir a GitHub:
+git add .
+git commit -m "arreglando formulario web3forms"
+git push -u origin main
