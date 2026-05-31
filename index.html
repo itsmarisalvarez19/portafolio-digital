@@ -235,6 +235,11 @@
 
 
 
+
+
+
+
+
 <!-- CONTACT SECTION -->
 <section class="contact-section" id="contact">
     <div class="container">
@@ -248,20 +253,15 @@
                 Escríbeme y con gusto podemos trabajar juntos.
             </p>
 
-            <form
-                action="https://formsubmit.co/alvarezfatima340@gmail.com"
-                method="POST"
-                class="contact-form"
-            >
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio de Fátima Alvarez">
-                <input type="hidden" name="_next" id="formNextUrl" value="">
+            <form class="contact-form" id="contactForm">
+                <input type="hidden" name="access_key" value="9e598402-b653-473c-87c1-d57e74eb234f">
+                <input type="hidden" name="subject" value="Nuevo mensaje desde el portafolio de Fátima Alvarez">
+                <input type="hidden" name="from_name" value="Portafolio Digital Fátima Alvarez">
 
                 <div class="form-group">
                     <input
                         type="text"
-                        name="Nombre"
+                        name="name"
                         placeholder="Tu nombre"
                         required
                     >
@@ -270,7 +270,7 @@
                 <div class="form-group">
                     <input
                         type="email"
-                        name="Correo"
+                        name="email"
                         placeholder="Tu correo"
                         required
                     >
@@ -279,7 +279,7 @@
                 <div class="form-group">
                     <input
                         type="text"
-                        name="Asunto"
+                        name="asunto"
                         placeholder="Asunto"
                         required
                     >
@@ -287,14 +287,14 @@
 
                 <div class="form-group">
                     <textarea
-                        name="Mensaje"
+                        name="message"
                         rows="6"
                         placeholder="Cuéntame sobre tu proyecto..."
                         required
                     ></textarea>
                 </div>
 
-                <button type="submit" class="contact-btn">
+                <button type="submit" class="contact-btn" id="contactSubmitBtn">
                     Enviar mensaje
                 </button>
             </form>
@@ -308,6 +308,15 @@
         <h3>¡Gracias por contactarme!</h3>
         <p>Tu mensaje fue enviado correctamente. Pronto me comunicaré contigo.</p>
         <button type="button" id="closeSuccessDialog">Cerrar</button>
+    </div>
+</div>
+
+<!-- ERROR DIALOG -->
+<div class="success-dialog" id="errorDialog">
+    <div class="success-box">
+        <h3>Ups, algo salió mal</h3>
+        <p>No se pudo enviar el mensaje. Por favor intenta de nuevo o escribe directamente al correo.</p>
+        <button type="button" id="closeErrorDialog">Cerrar</button>
     </div>
 </div>
 

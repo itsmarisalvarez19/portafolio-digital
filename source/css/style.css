@@ -131,7 +131,13 @@ h2{font-family:Playfair Display,serif;font-size:clamp(2.2rem,5vw,4.4rem);line-he
     opacity: 0.9;
 }
 
-/* SUCCESS DIALOG */
+.contact-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* DIALOG */
 .success-dialog {
     position: fixed;
     inset: 0;
