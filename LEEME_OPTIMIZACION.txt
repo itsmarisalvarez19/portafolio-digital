@@ -1,0 +1,14 @@
+OPTIMIZACIÓN REALIZADA
+
+Se optimizó el sitio para cargar más rápido:
+- Imágenes convertidas a WebP.
+- Imágenes grandes reducidas de tamaño.
+- Se agregó lazy loading.
+- Se agregó decoding async.
+- CSS y JS comprimidos ligeramente.
+- Scripts con defer.
+
+Después de subir a GitHub Pages:
+- Espera 2 a 5 minutos.
+- Prueba en incógnito.
+- Si sigue lento, puede ser caché del navegador.
